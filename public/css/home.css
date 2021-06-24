@@ -1,0 +1,154 @@
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: 'Noto-sans', sans-serif;
+  width: 100vw;
+  /* background: #000; */
+  /* color: #c2c1c1; */
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+a {
+  background-color: transparent;
+}
+
+img {
+  border-style: none;
+}
+
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+}
+
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
+  outline: 1px dotted;
+}
+
+[type='checkbox'],
+[type='radio'] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type='search'] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+[hidden] {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 5px;
+}
+
+* {
+  transition: 0.5s;
+  font-weight: 100;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+div#overlay {
+  width: 100vw;
+  height: 100vw;
+  background: rgba(0, 0, 0, 0);
+
+  position: fixed;
+  color: white;
+  text-align: center;
+  align-items: center;
+  display: none;
+  text-transform: capitalize;
+}
+div#overlay.on {
+  display: inline;
+
+  background: rgba(0, 0, 0, 0.7);
+}
+#overlay img {
+  width: 120px;
+  margin-top: 200px;
+}
+
+div.container {
+  width: 100vw;
+  overflow: hidden;
+  padding: 20px;
+  text-align: center;
+}
+
+div.container img {
+  width: 100%;
+  max-width: 600px;
+  padding: 10px;
+  opacity: 0.75;
+}
+div.container h1 {
+  font-size: 44px;
+  font-family: 'Roboto', serif;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+div.container .selectpicker {
+  padding: 10px;
+  border-radius: 12px;
+  width: 120px;
+  font-size: 20px;
+}
+.selectpicker:hover {
+  cursor: pointer;
+}
+div.lang {
+  padding: 10px;
+  gap: 20px;
+  display: grid;
+  grid-template-columns: min-content min-content;
+  width: min-content;
+  margin: auto;
+}
+button.btn {
+  width: 110px;
+  font-size: 22px;
+  margin-top: 10px;
+}

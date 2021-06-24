@@ -20,7 +20,7 @@ for currentArgument, currentValue in params:
         accent = currentValue
     elif currentArgument in ('--output', '-o'):
         output = currentValue
-print(input_file, from_lang, to_lang, accent)
+# print(input_file, from_lang, to_lang, accent)
 if(accent == ''):
     accent = from_lang
 AUDIO_FILE = path.join(path.dirname(
@@ -45,9 +45,8 @@ translator = Translator()
 
 # In which we want to convert, short
 # form of hindi
-
-
 with spr.AudioFile(AUDIO_FILE) as source:
+
     # print(source.get_pyaudio())
     # print("Speak a stentence...")
     # recog1.adjust_for_ambient_noise(source, duration=0.2)
@@ -66,7 +65,7 @@ with spr.AudioFile(AUDIO_FILE) as source:
     try:
         # Printing Speech which need to
         # be translated.
-        print("Phase to be Translated :" + get_sentence)
+        print('{'+'"original text": "'+get_sentence+'",')
 
         # Using translate() method which requires
         # three arguments, 1st the sentence which
@@ -90,10 +89,12 @@ with spr.AudioFile(AUDIO_FILE) as source:
         # Using save() method to save the translated
         # speech in capture_voice.mp3
         speak.save(output)
-        print(get_sentence)
-        print(text)
+        print('"Translated-Text":"'+text+'",')
+        print('"Success":'+'"true"}')
+        # print(text)
+        sys.stdout.flush()
         # Using OS module to run the translated voice.
-        os.system("start captured_voice.mp3")
+        # os.system("start "+output)
 
     # Here we are using except block for UnknownValue
     # and Request Error and printing the same to
