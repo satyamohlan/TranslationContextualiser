@@ -56,9 +56,11 @@
 <button class="btn btn-outline-primary" type="submit">Start</button>
   </div>
 </form>
-
+<%if(locals.file!=undefined){%>
 <audio src="<%=file%>" autoplay id='audio_preview'></audio>
-  </div>
+<%}%>
+</div>
+
 </body>
 
 <script src="js/main.js"></script>
