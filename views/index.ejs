@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IBM Translator</title>
+  <link
+  href="https://fonts.googleapis.com/css2?family=MuseoModerno&family=Roboto+Mono:wght@300;600&family=Roboto+Slab:wght@200&family=Roboto:wght@100;300;400&&family=Noto+Sans&family=Oswald:wght@100&family=Asap&display=swap"
+  rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <div id="overlay">
+    <img src="images/search.svg" alt="">
+    <h1>Drop Any Audio File</h1>
+  
+</div>
+
+
+<!-- <input type="text"> -->
+<form action="/interpret" method="post" enctype="multipart/form-data">
+  <div class="container">
+    <div class="chat-messages">
+      <div class="message">
+        <p class="meta"><span>9:12pm</span></p>
+        <p class="text">
+          <%=translation.translated_text%>
+        </p>
+      </div>
+      
+      </div>
+    
+
+    <img src="images/undraw_Audio_conversation_re_ptsl.svg" alt="">
+    <h1>Start A New Conversation</h1>
+
+    <div class="lang">
+      <input type="file" accept="audio/*" name='audiofile' id="recorder" class="form-control-file">
+     <select class="selectpicker" data-width="fit" name='Origin'>
+    <option value='en' data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
+    <option value='hi' data-content='<span class="flag-icon flag-icon-us"></span> Hindi'>Hindi</option>
+  <option value='fr' data-content='<span class="flag-icon flag-icon-mx"></span> French'>French</option>
+</select>
+<select class="selectpicker" data-width="fit" name='resultant'>
+  <option value='en'data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
+  <option value='hi' data-content='<span class="flag-icon flag-icon-us"></span> Hindi'>Hindi</option>
+
+<option value='fr' data-content='<span class="flag-icon flag-icon-mx"></span> French'>French</option>
+</select>
+  </div>
+<button class="btn btn-outline-primary" type="submit">Start</button>
+</form>
+
+<audio src="" id='audio_preview'></audio>
+  </div>
+</body>
+
+<script src="js/main.js"></script>
+</html>

@@ -1,12 +1,14 @@
 const recorder = document.getElementById('recorder');
   const player = document.getElementById('player');
 
-  recorder.addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    const url = URL.createObjectURL(file);
-    // Do something with the audio file.
-    // player.src = url;
-  });
+  // recorder.addEventListener('change', function(e) {
+  //   const file = e.target.files[0];
+  //   const url = URL.createObjectURL(file);
+  //   $.post('/interpret',{body:url});
+    
+  //   // Do something with the audio file.
+  //   // player.src = url;
+  // });
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
 const startbtn=document.querySelector('.btn.btn-outline-primary');startbtn.addEventListener('click',()=>{
   startbtn.innerHTML='Stop';

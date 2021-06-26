@@ -122,7 +122,11 @@ div.container img {
   width: 100%;
   max-width: 600px;
   padding: 10px;
-  opacity: 0.75;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 25%;
+  z-index: 0;
 }
 div.container h1 {
   font-size: 44px;
@@ -130,6 +134,38 @@ div.container h1 {
   font-weight: 300;
   margin-bottom: 20px;
 }
+.chat-messages {
+  padding: 30px;
+  max-height: 500px;
+  overflow-y: scroll;
+  padding-bottom: 225px;
+}
+
+.chat-messages .message {
+  padding: 10px;
+  margin: 15px;
+  background-color: #777;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+  color: #fff;
+  text-align: left;
+  border-radius: 5px;
+  overflow-wrap: break-word;
+}
+
+.chat-messages .message .meta {
+  font-size: 15px;
+  font-weight: bold;
+  opacity: 0.7;
+  margin-bottom: 7px;
+}
+
+.chat-messages .message .meta span {
+  color: #777;
+}
+
 div.container .selectpicker {
   padding: 10px;
   border-radius: 12px;
@@ -144,6 +180,7 @@ div.lang {
   gap: 20px;
   display: grid;
   grid-template-columns: min-content min-content;
+  grid-template-areas: 'file file';
   width: min-content;
   margin: auto;
 }
@@ -151,4 +188,9 @@ button.btn {
   width: 110px;
   font-size: 22px;
   margin-top: 10px;
+}
+#recorder {
+  width: min-content;
+  margin: auto;
+  grid-area: file;
 }

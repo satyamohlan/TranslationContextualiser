@@ -18,13 +18,12 @@ for currentArgument, currentValue in params:
         to_lang = currentValue
     elif currentArgument in ('--accent'):
         accent = currentValue
-    elif currentArgument in ('--output', '-o'):
+    elif currentArgument in ('-o', '--output'):
         output = currentValue
-# print(input_file, from_lang, to_lang, accent)
+# print(output, from_lang, to_lang, accent)
 if(accent == ''):
     accent = from_lang
-AUDIO_FILE = path.join(path.dirname(
-    path.realpath(__file__)), input_file)
+AUDIO_FILE = input_file
 # Creating Recogniser() class object
 recog1 = spr.Recognizer()
 
@@ -46,7 +45,6 @@ translator = Translator()
 # In which we want to convert, short
 # form of hindi
 with spr.AudioFile(AUDIO_FILE) as source:
-
     # print(source.get_pyaudio())
     # print("Speak a stentence...")
     # recog1.adjust_for_ambient_noise(source, duration=0.2)
@@ -65,7 +63,7 @@ with spr.AudioFile(AUDIO_FILE) as source:
     try:
         # Printing Speech which need to
         # be translated.
-        print('{'+'"original text": "'+get_sentence+'",')
+        print('{'+'"original_text": "'+get_sentence+'",')
 
         # Using translate() method which requires
         # three arguments, 1st the sentence which
@@ -89,7 +87,7 @@ with spr.AudioFile(AUDIO_FILE) as source:
         # Using save() method to save the translated
         # speech in capture_voice.mp3
         speak.save(output)
-        print('"Translated-Text":"'+text+'",')
+        print('"translated_text":"'+text+'",')
         print('"Success":'+'"true"}')
         # print(text)
         sys.stdout.flush()
