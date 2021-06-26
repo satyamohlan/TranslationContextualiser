@@ -122,11 +122,11 @@ div.container img {
   width: 100%;
   max-width: 600px;
   padding: 10px;
-  opacity: 0.6;
+  /* opacity: 0.6;
   position: absolute;
   top: 0;
   left: 25%;
-  z-index: 0;
+  z-index: 0; */
 }
 div.container h1 {
   font-size: 44px;
@@ -138,7 +138,7 @@ div.container h1 {
   padding: 30px;
   max-height: 500px;
   overflow-y: scroll;
-  padding-bottom: 225px;
+  /* padding-bottom: 225px; */
 }
 
 .chat-messages .message {

@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 app.use('/css', express.static('views/css'));
 app.use('/js', express.static('views/js'));
 app.use('/images', express.static('views/images'));
-
+app.use('/output',express.static('output'))
 app.use(express.urlencoded({ extended: false }));
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
