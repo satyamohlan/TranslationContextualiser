@@ -53,7 +53,7 @@ form.parse(req,(err,fields,files)=>{
   var {Origin,resultant}=fields;
   console.log(fileName);
  pathName=path.join('output',path.basename(fileName).split('.')[0]+resultant+'.mp3');
-  const python = spawn('python', ['noisereduce.py','-r',resultant,'-s',Origin,'-i',fileName,'-o',pathName]);
+  const python = spawn('python3', ['noisereduce.py','-r',resultant,'-s',Origin,'-i',fileName,'-o',pathName]);
   python.stdout.on('data', function (data) {
    console.log('Pipe data from python script ...');
    dataToSend =data.toString();
