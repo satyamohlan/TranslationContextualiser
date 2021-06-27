@@ -1,11 +1,12 @@
 const fs = require('fs');
-const http=require('http');
+const path = require('path');
 const formidable=require('formidable');
 const express = require('express');
 const app = express();
 const {spawn} = require('child_process');
-const path = require('path');
-const util=require('util');
+const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
+const ffmpeg = require('fluent-ffmpeg');
+ffmpeg.setFfmpegPath(ffmpegPath);
 app.set('view engine', 'ejs');
 app.use('/css', express.static('views/css'));
 app.use('/js', express.static('views/js'));
@@ -24,17 +25,23 @@ app.post('/interpret',(req,res,next) => {
   var form = new formidable.IncomingForm();
   form.uploadDir = path.join(__dirname,'/uploads');
   var fileName='';
-  var  Origin_lang='hell';
-  var Result_lang='hell2'
-
+  var dataToSend=''
+  var  Origin_lang='';
+  var Result_lang=''
+  var pathName=''
   form.on('file', function(field, file) {
       //rename the incoming file to the file's name
-      fileName= path.join(form.uploadDir, file.name);
-       fs.rename(file.path, fileName,(err)=>{
-        if (err) throw err;
-        // you may respond with another html page
-
-       });
+      fileName= path.join(form.uploadDir, file.name.split('.')[0]+'.wav');
+      ffmpeg(file.path)
+      .toFormat('wav')
+      .on('error', (err) => {
+        console.log('An error occurred: ' + err.message);})
+      .on('progress', (progress) => {
+        console.log('Processing: ' + progress.targetSize + ' KB converted');})
+      .on('end', () => {
+        console.log('Processing finished !');})
+      .save(fileName);
+      
   })
   form.on('error', function(err) {
     console.log('An error has occured: \n' + err);
@@ -44,9 +51,9 @@ form.parse(req,(err,fields,files)=>{
   if(err)throw err;
   else{
   var {Origin,resultant}=fields;
-  var pathName=path.join('output',path.basename(fileName))
+  console.log(fileName);
+ pathName=path.join('output',path.basename(fileName).split('.')[0]+resultant+'.mp3');
   const python = spawn('python', ['noisereduce.py','-r',resultant,'-s',Origin,'-i',fileName,'-o',pathName]);
-  var dataToSend=''
   python.stdout.on('data', function (data) {
    console.log('Pipe data from python script ...');
    dataToSend =data.toString();
